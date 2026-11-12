@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>ARENT | 宛名ラベル作成ツール</title>
+<style>
+:root{font-family:system-ui,-apple-system,"Noto Sans JP","Yu Gothic",Meiryo,sans-serif;color:#192338;background:#f2f5f8;font-synthesis:none}*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.45}.app-shell{min-height:100vh}.header{background:white;display:flex;align-items:center;gap:18px;border-bottom:1px solid #dbe3eb;padding:16px 28px}.logo{font-size:24px;letter-spacing:.14em;font-weight:800;color:#0a615f}.logo span{color:#42a6a1}.header-title{font-size:17px;font-weight:800}.sub{font-size:12px;color:#677487;margin-top:4px}.right-note{margin-left:auto;color:#48746c;font-size:12px;background:#e7f5f1;border-radius:99px;padding:8px 14px}.layout{display:grid;grid-template-columns:355px minmax(0,1fr);gap:22px;padding:22px;max-width:1600px;margin:auto}.controls{display:flex;flex-direction:column;gap:14px}.card{background:white;border:1px solid #dde5ec;border-radius:13px;padding:17px;box-shadow:0 2px 7px #20334b0b}.section-head{display:flex;align-items:center;gap:10px;margin-bottom:15px}.num{width:27px;height:27px;border-radius:50%;background:#e5f3f1;color:#167268;font-size:13px;display:grid;place-items:center;font-weight:800}h2{font-size:16px;margin:0}.drop{border:2px dashed #b6d2d0;background:#f7fbfa;border-radius:12px;display:flex;gap:6px;align-items:center;flex-direction:column;padding:24px 10px;cursor:pointer;text-align:center}.drop:hover,.drop.drag{background:#e7f6f3;border-color:#138879}.drop-icon{font-size:27px;color:#138879}.drop strong{font-size:14px}.drop small{font-size:11px;color:#78899b}.file-name{font-size:12px;color:#68778a;overflow-wrap:anywhere;margin-top:10px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:15px}.stats div{background:#f3f7f8;padding:9px 4px;border-radius:8px;text-align:center}.stats span{font-size:10px;color:#778797;display:block}.stats strong{font-size:21px}.field{margin:9px 0;display:flex;flex-direction:column;gap:5px}.field label{font-size:12px;font-weight:650;display:flex;justify-content:space-between}.field em{font-style:normal;color:#0b8777}.field input:not([type=range]),select{width:100%;padding:9px;border:1px solid #d5dfe7;border-radius:8px;font-size:12px}.field input[type=range]{width:100%;accent-color:#137c70}.checkline{font-size:12px;margin-top:10px}.checkline input{accent-color:#0b8777}.status{padding:11px;font-size:12px;border-radius:7px;line-height:1.55}.status.neutral{background:#f1f4f6;color:#647484}.status.good{background:#e5f6ee;color:#196044}.status.bad{background:#fff0eb;color:#9b3a22}.status.warn{background:#fff7e3;color:#7b591a}.issues{max-height:250px;overflow:auto;font-size:11px}.issue{border-bottom:1px solid #e8edf1;padding:8px 0;line-height:1.5}.issue b{color:#a63f28}.issue.warn b{color:#94691e}.help,.hint{font-size:11px;line-height:1.65;color:#697a89}.primary,.secondary{width:100%;border:0;border-radius:9px;padding:13px;font-weight:750}.primary{background:#087a70;color:white}.primary:hover:not(:disabled){background:#00685f}.secondary{background:#edf3f4;margin-top:8px;color:#36505c}.workspace{min-width:0}.workspace-top{display:flex;align-items:center;justify-content:space-between;margin:4px 0 15px}.pager{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700}.pager button{border:1px solid #dce4e9;border-radius:8px;background:white;width:31px;height:31px}.preview-holder{background:#dce3e8;border-radius:12px;padding:22px;display:flex;justify-content:center;overflow:auto;max-height:calc(100vh - 170px)}.preview-page{width:210mm;height:297mm;flex-shrink:0;box-shadow:0 5px 25px #142a4140;transform-origin:top center}.page{position:relative;background:white;width:210mm;height:297mm;overflow:hidden}.empty{position:absolute;inset:0;display:grid;place-items:center;text-align:center;font-size:15px;color:#8898a8}.legend{display:flex;gap:20px;justify-content:center;font-size:12px;color:#627587;padding:14px}.swatch{display:inline-block;width:10px;height:10px;border:1px solid #aab8c4;margin-right:3px}footer{text-align:center;font-size:11px;color:#8a98a6;padding:20px}.label{position:absolute;width:66mm;height:33.9mm;padding:1.45mm 1.75mm 1.05mm;display:flex;flex-direction:column;overflow:hidden;color:black;background:white}.label.guide{outline:.15mm solid #a5b7c3;outline-offset:-.18mm}.dest{height:19.3mm;min-height:0;max-height:19.3mm;overflow:hidden;font-family:"Noto Sans JP","Yu Gothic",Meiryo,sans-serif;font-size:8pt;line-height:1.21;font-weight:500}.dest .postcode{margin-bottom:.6mm;white-space:nowrap}.dest .address{overflow-wrap:anywhere;word-break:break-all;line-break:strict}.dest .name{margin-top:.55mm;white-space:normal}.product{font-size:6.2pt;height:3.25mm;line-height:1.15;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;border-top:.1mm solid #dadada;padding-top:.35mm}.sender{border-top:.1mm solid #dadada;padding-top:.45mm;flex:1;font-size:5.6pt;line-height:1.17;overflow:hidden;word-break:break-all;overflow-wrap:anywhere}.sender .sender-title{font-weight:700;display:inline}.sender .sender-head{white-space:normal}.sender .sender-address{white-space:normal}.label.without-product .dest{height:22.55mm;max-height:22.55mm}.label.without-product .product{display:none}#printRoot{display:none}@media(max-width:1100px){.layout{grid-template-columns:1fr}.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}.preview-holder{max-height:700px}}@media(max-width:650px){.header{padding:14px;gap:10px}.right-note{display:none}.layout{padding:12px}.controls{display:flex}.preview-holder{padding:12px}.legend{display:block}}
+@page{size:A4 portrait;margin:0}
+@media print{html,body{padding:0!important;margin:0!important;width:210mm!important;background:white!important}.app-shell{display:none!important}#printRoot{display:block!important;position:static!important;width:210mm!important}.page{position:relative!important;width:210mm!important;height:297mm!important;overflow:hidden!important;break-after:page;page-break-after:always;box-shadow:none!important;transform:none!important;margin:0!important;padding:0!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}.page:last-child{break-after:auto;page-break-after:auto}.label{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+
+</style>
+</head>
+<body>
+<div class="app-shell">
+<header class="header"><div class="logo">A<span>R</span>ENT</div><div><div class="header-title">宛名ラベル作成ツール</div><div class="sub">GoQSystem CSV → SOHO Partner 24面（66 × 33.9mm）</div></div><div class="right-note">処理はこの端末内のみ</div></header>
+<main class="layout">
+<section class="controls">
+<div class="card"><div class="section-head"><span class="num">1</span><h2>CSVを読み込む</h2></div>
+<label class="drop" id="dropzone" for="fileInput"><span class="drop-icon">⇧</span><strong>GoQSystemのCSVを選択</strong><small>ここにドラッグ＆ドロップもできます。Shift-JIS / UTF-8対応</small></label><input id="fileInput" type="file" accept=".csv,text/csv" hidden>
+<div id="fileName" class="file-name">CSV未選択</div>
+<div class="stats" id="stats" hidden><div><span>注文行</span><strong id="rowCount">0</strong></div><div><span>印刷ページ</span><strong id="pageCount">0</strong></div><div><span>エラー</span><strong id="errorCount">0</strong></div><div><span>注意</span><strong id="warningCount">0</strong></div></div>
+</div>
+<div class="card"><div class="section-head"><span class="num">2</span><h2>印刷設定</h2></div>
+<div class="field"><label for="senderMode">差出人情報</label><select id="senderMode"><option value="csv">CSVの空欄1〜3を優先</option><option value="fixed">下記の固定情報を使用</option></select></div>
+<div class="field"><label for="senderZip">差出人郵便番号</label><input id="senderZip" value="619-0214" autocomplete="off"></div>
+<div class="field"><label for="senderAddress">差出人住所</label><input id="senderAddress" value="京都府木津川市木津川原田66-8" autocomplete="off"></div>
+<div class="field"><label for="senderName">差出人名</label><input id="senderName" value="ARENT カウシェ店" autocomplete="off"></div>
+<div class="field"><label for="offsetX">印刷位置の横調整（mm）<em id="xValue">0.0</em></label><input id="offsetX" type="range" min="-3" max="3" step="0.5" value="0"></div>
+<div class="field"><label for="offsetY">印刷位置の縦調整（mm）<em id="yValue">0.0</em></label><input id="offsetY" type="range" min="-3" max="3" step="0.5" value="0"></div>
+<div class="checkline"><label><input id="guide" type="checkbox"> 枠線を表示する（普通紙での位置確認用）</label></div>
+<div class="checkline"><label><input id="productVisible" type="checkbox" checked> 商品コード・数量を表示</label></div>
+</div>
+<div class="card"><div class="section-head"><span class="num">3</span><h2>エラーチェック</h2></div><div id="status" class="status neutral" role="status">CSVを読み込むと自動的に検査します。</div><div id="issueList" class="issues" aria-live="polite"></div>
+<div class="help">住所・氏名・郵便番号の元データは自動補完しません。重複行も削除しません。入力が欠落していたらCSVを修正して再読み込みしてください。</div></div>
+<div class="card action-card"><button id="printBtn" class="primary" disabled>PDFを保存・印刷する</button><button id="sampleBtn" class="secondary">サンプルデータで試す</button><p class="hint">「PDFを保存・印刷する」→ 印刷先を「PDFに保存」に設定してください。<b>A4・倍率100％・余白なし・ヘッダー/フッターなし</b>で使用します。</p><p class="hint">実際のラベル用紙では、最初に普通紙へ印刷して位置を確認してください。</p></div>
+</section>
+<section class="workspace"><div class="workspace-top"><div><h2>印刷プレビュー</h2><div class="sub">1ページ24件 / 3列×8段 / A4 210×297mm</div></div><div class="pager"><button id="prevPage" aria-label="前ページ">‹</button><span id="pageIndex">0 / 0</span><button id="nextPage" aria-label="次ページ">›</button></div></div>
+<div class="preview-holder"><div id="previewPage" class="page preview-page"><div class="empty">CSVを読み込むと、ここに24面ラベルが表示されます。</div></div></div>
+<div class="legend"><span><i class="swatch"></i> 枠線は設定でON/OFF</span><span>郵便番号・住所・宛名は同一フォント</span></div>
+</section>
+</main>
+<footer>ARENT 内部業務用 · CSVの内容は外部送信されません · 印刷用の正式な郵便送り状ではありません</footer>
+</div>
+<div id="printRoot" aria-hidden="true"></div>
+<script>
+'use strict';
+// All processing is local to this browser. No network requests or persistence.
+const $=id=>document.getElementById(id);
+const COLS=3,ROWS=8,PER_PAGE=24,LEFT=6,TOP=12.9,W=66,H=33.9;
+const required=['送付先郵便番号','送付先住所（全て）','送付先氏名'];
+const state={rows:[],issues:[],page:0,file:'',ready:false};
+const sample=[
+{'送付先郵便番号':'533-0022','送付先住所（全て）':'大阪府大阪市東淀川区菅原1-6-2-402','送付先氏名':'サンプル 花子','商品コード':'godiva-3-1','個数':'1','空欄1':'619-0214','空欄2':'京都府木津川市木津川原田66-8','空欄3':'ARENT カウシェ店'},
+{'送付先郵便番号':'920-3134','送付先住所（全て）':'石川県金沢市金市町イ5番地29 ラフィーネ金市201','送付先氏名':'サンプル 太郎','商品コード':'godiva-6','個数':'2','空欄1':'619-0214','空欄2':'京都府木津川市木津川原田66-8','空欄3':'ARENT カウシェ店'},
+{'送付先郵便番号':'123-4567','送付先住所（全て）':'東京都中央区日本橋本町1丁目2番3号 サンプルビルディング101号室','送付先氏名':'サンプル 次郎','商品コード':'GODIVA-21','個数':'1','空欄1':'619-0214','空欄2':'京都府木津川市木津川原田66-8','空欄3':'ARENT カウシェ店'}
+];
+function parseCSV(text){
+ if(text.charCodeAt(0)===0xFEFF)text=text.slice(1);
+ const rows=[];let row=[],field='',quoted=false;
+ for(let i=0;i<text.length;i++){
+  const ch=text[i];
+  if(quoted){if(ch==='"'&&text[i+1]==='"'){field+='"';i++;}else if(ch==='"'){quoted=false;}else{field+=ch;}}
+  else if(ch==='"'){if(field==='')quoted=true;else field+=ch;}
+  else if(ch===','){row.push(field);field='';}
+  else if(ch==='\r'||ch==='\n'){
+   row.push(field);field='';if(row.some(x=>x.trim()!==''))rows.push(row);row=[];
+   if(ch==='\r'&&text[i+1]==='\n')i++;
+  }else field+=ch;
+ }
+ if(quoted)throw Error('CSVの引用符が閉じられていません。元CSVを確認してください。');
+ if(field!==''||row.length){row.push(field);if(row.some(x=>x.trim()!==''))rows.push(row);}
+ return rows;
+}
+function csvObjects(text){
+ const arr=parseCSV(text);if(arr.length<2)throw Error('データ行のあるCSVを選んでください。');
+ const headers=arr[0].map(x=>x.trim().replace(/^\uFEFF/,''));
+ for(const key of required)if(!headers.includes(key))throw Error('必須列がありません：'+key);
+ const records=[];const diagnostics=[];
+ arr.slice(1).forEach((values,i)=>{
+  if(values.length!==headers.length)diagnostics.push({type:'error',row:i+2,msg:`列数が合いません（ヘッダー${headers.length}列／データ${values.length}列）`});
+  const obj={};headers.forEach((h,j)=>obj[h]=values[j]??'');
+  obj._csvRow=i+2;records.push(obj);
+ });
+ return {records,diagnostics};
+}
+function clean(x){return String(x??'').trim();}
+function half(x){return String(x).replace(/[０-９]/g,c=>String.fromCharCode(c.charCodeAt(0)-0xFEE0)).replace(/[－ー―−‐]/g,'-');}
+function zipNormalized(x){const z=half(clean(x)).replace(/\s/g,'').replace(/^〒/,'');const digits=z.replace(/-/g,'');return /^\d{7}$/.test(digits)?digits.slice(0,3)+'-'+digits.slice(3):null;}
+function issuesFor(records,initial=[]){
+ const issues=[...initial];const keyCounts=new Map();
+ records.forEach((r,i)=>{
+  const row=r._csvRow||i+2;
+  if(!clean(r['送付先郵便番号']))issues.push({type:'error',row,msg:'宛先郵便番号が空欄です'});
+  else if(!zipNormalized(r['送付先郵便番号']))issues.push({type:'error',row,msg:'宛先郵便番号が7桁ではありません'});
+  if(!clean(r['送付先住所（全て）']))issues.push({type:'error',row,msg:'宛先住所が空欄です'});
+  if(!clean(r['送付先氏名']))issues.push({type:'error',row,msg:'宛先氏名が空欄です'});
+  const qty=clean(r['個数']);if(qty&&!/^\d+$/.test(half(qty)))issues.push({type:'warning',row,msg:'数量が正の整数か確認してください'});
+  const k=[r['送付先郵便番号'],r['送付先住所（全て）'],r['送付先氏名'],r['商品コード'],r['個数']].map(clean).join('|');
+  keyCounts.set(k,(keyCounts.get(k)||0)+1);
+ });
+ const dup=[...keyCounts.values()].reduce((n,x)=>n+(x>1?x:0),0);
+ if(dup)issues.push({type:'warning',row:'全体',msg:`同一宛先・同一商品の行が${dup}行あります。別注文の可能性があるため削除しません。`});
+ if(!records.every(r=>clean(r['空欄1'])&&clean(r['空欄2'])&&clean(r['空欄3']))&&$('senderMode').value==='csv'){
+  issues.push({type:'warning',row:'差出人',msg:'差出人列（空欄1〜3）に未入力があります。固定の差出人情報で補います。'});
+ }
+ return issues;
+}
+function sender(r){
+ const use=$('senderMode').value==='csv';
+ return {
+ zip: use?clean(r['空欄1'])||clean($('senderZip').value):clean($('senderZip').value),
+ address:use?clean(r['空欄2'])||clean($('senderAddress').value):clean($('senderAddress').value),
+ name:use?clean(r['空欄3'])||clean($('senderName').value):clean($('senderName').value)
+ };
+}
+function label(r,index){
+ const node=document.createElement('div');node.className='label'+($('guide').checked?' guide':'')+(!$('productVisible').checked?' without-product':'');
+ const c=index%COLS,ri=Math.floor(index/COLS);node.style.left=(LEFT+W*c+Number($('offsetX').value))+'mm';node.style.top=(TOP+H*ri+Number($('offsetY').value))+'mm';
+ const dest=document.createElement('div');dest.className='dest';
+ const zip=document.createElement('div');zip.className='postcode';zip.textContent='〒 '+(zipNormalized(r['送付先郵便番号'])||clean(r['送付先郵便番号']));
+ const address=document.createElement('div');address.className='address';address.textContent=clean(r['送付先住所（全て）']);
+ const name=document.createElement('div');name.className='name';name.textContent=clean(r['送付先氏名'])+' 様';
+ dest.append(zip,address,name);
+ const p=document.createElement('div');p.className='product';p.textContent='商品：'+clean(r['商品コード']||r['SKU管理番号'])+'  ×'+clean(r['個数']||'1');
+ const s=sender(r);const from=document.createElement('div');from.className='sender';
+ const t=document.createElement('div');t.className='sender-head';const b=document.createElement('span');b.className='sender-title';b.textContent='【差出人】 ';t.append(b,document.createTextNode('〒'+s.zip+'　'+s.name));
+ const a=document.createElement('div');a.className='sender-address';a.textContent=s.address;
+ from.append(t,a);node.append(dest,p,from);node.dataset.row=String(r._csvRow||'');return node;
+}
+function buildPage(records,pg){const p=document.createElement('div');p.className='page';const start=pg*PER_PAGE;records.slice(start,start+PER_PAGE).forEach((r,i)=>p.appendChild(label(r,i)));return p;}
+function fitLabels(root){
+ const result=[];
+ root.querySelectorAll('.label').forEach(l=>{
+  const dest=l.querySelector('.dest');let f=8.1;
+  while(f>=5.5){dest.style.fontSize=f.toFixed(2)+'pt';if(dest.scrollHeight<=dest.clientHeight+1&&dest.scrollWidth<=dest.clientWidth+1)break;f-=0.2;}
+  if(dest.scrollHeight>dest.clientHeight+1||dest.scrollWidth>dest.clientWidth+1)result.push(Number(l.dataset.row));
+  const from=l.querySelector('.sender');let sf=5.6;
+  while(sf>=4.5){from.style.fontSize=sf.toFixed(2)+'pt';if(from.scrollHeight<=from.clientHeight+1&&from.scrollWidth<=from.clientWidth+1)break;sf-=0.2;}
+  if(from.scrollHeight>from.clientHeight+1||from.scrollWidth>from.clientWidth+1)result.push(Number(l.dataset.row));
+ });
+ return [...new Set(result.filter(Boolean))];
+}
+function render(){
+ const n=state.rows.length;const pages=Math.ceil(n/PER_PAGE);
+ $('stats').hidden=!n;$('rowCount').textContent=String(n);$('pageCount').textContent=String(pages);
+ if(state.page>=pages)state.page=Math.max(0,pages-1);
+ $('pageIndex').textContent=pages?`${state.page+1} / ${pages}`:'0 / 0';
+ $('prevPage').disabled=state.page===0;$('nextPage').disabled=state.page>=pages-1;
+ const preview=$('previewPage');preview.replaceChildren();
+ if(n){const fragment=buildPage(state.rows,state.page);preview.replaceChildren(...Array.from(fragment.children));fitLabels(preview);}
+ else {const e=document.createElement('div');e.className='empty';e.textContent='CSVを読み込むと、ここに24面ラベルが表示されます。';preview.append(e);}
+ resizePreview();
+ const printRoot=$('printRoot');printRoot.replaceChildren();
+ for(let i=0;i<pages;i++)printRoot.appendChild(buildPage(state.rows,i));
+ // Print root needs to be measurable; temporarily make it visible off screen.
+ if(n){printRoot.style.cssText='display:block;position:absolute;left:-10000px;top:0;visibility:hidden';
+  const overflow=fitLabels(printRoot);printRoot.style.cssText='';
+  state.overflow=overflow;
+ }else state.overflow=[];
+ renderStatus();
+}
+function renderStatus(){
+ const issues=[...state.issues];for(const r of state.overflow||[])issues.push({type:'error',row:r,msg:'文字がラベル内に収まりません。住所を短縮せず元CSVをご確認ください。'});
+ const errs=issues.filter(x=>x.type==='error').length;const warns=issues.filter(x=>x.type==='warning').length;
+ $('errorCount').textContent=errs;$('warningCount').textContent=warns;
+ const st=$('status');st.className='status '+(!state.rows.length?'neutral':errs?'bad':warns?'warn':'good');
+ st.textContent=!state.rows.length?'CSVを読み込むと自動的に検査します。':errs?`エラー${errs}件：印刷を停止しています。元CSVを修正してください。`:`${state.rows.length}行の読み込み完了。${warns?`注意が${warns}件あります（確認してください）。`:'必須項目のエラーはありません。'}`;
+ const list=$('issueList');list.replaceChildren();
+ issues.slice(0,50).forEach(iss=>{const d=document.createElement('div');d.className='issue '+(iss.type==='warning'?'warn':'');const b=document.createElement('b');b.textContent=`${iss.row}行：`;d.append(b,document.createTextNode(iss.msg));list.append(d);});
+ if(issues.length>50){const d=document.createElement('div');d.className='issue';d.textContent=`ほか${issues.length-50}件の指摘があります。`;list.append(d);}
+ $('printBtn').disabled=!state.rows.length||errs>0;
+}
+function resizePreview(){const holder=document.querySelector('.preview-holder');if(!holder)return;const page=$('previewPage');const screenW=holder.clientWidth-38;const fullW=210*96/25.4;const factor=Math.min(1,screenW/fullW);page.style.transform=`scale(${factor})`;page.style.marginBottom=`-${297*96/25.4*(1-factor)}px`;}
+function loadRows(rows,diagnostics=[],filename='サンプル'){
+ state.rows=rows;state.file=filename;state.page=0;state.issues=issuesFor(rows,diagnostics);$('fileName').textContent=filename+'　／　'+rows.length+'行';render();
+}
+async function fileImport(file){
+ if(!file)return;
+ try{
+  const bytes=await file.arrayBuffer();let decoded='';
+  // If valid UTF-8, decode UTF-8. Otherwise GoQ exports CP932 / Shift-JIS.
+  try{decoded=new TextDecoder('utf-8',{fatal:true}).decode(bytes);}catch{decoded=new TextDecoder('shift_jis',{fatal:true}).decode(bytes);}
+  const {records,diagnostics}=csvObjects(decoded);
+  loadRows(records,diagnostics,file.name);
+ }catch(e){state.rows=[];state.issues=[];render();$('fileName').textContent='読み込み失敗: '+String(e.message||e);$('status').className='status bad';$('status').textContent='CSVを確認してください：'+String(e.message||e);}
+}
+$('fileInput').addEventListener('change',e=>fileImport(e.target.files[0]));
+const drop=$('dropzone');drop.addEventListener('dragover',e=>{e.preventDefault();drop.classList.add('drag')});drop.addEventListener('dragleave',()=>drop.classList.remove('drag'));drop.addEventListener('drop',e=>{e.preventDefault();drop.classList.remove('drag');fileImport(e.dataTransfer.files[0]);});
+$('sampleBtn').addEventListener('click',()=>loadRows(Array.from({length:30},(_,i)=>({...sample[i%sample.length],_csvRow:i+2})) ,[],'サンプル 30件（実発送禁止）'));
+$('prevPage').addEventListener('click',()=>{state.page--;render()});$('nextPage').addEventListener('click',()=>{state.page++;render()});
+['senderMode','senderZip','senderAddress','senderName','offsetX','offsetY','guide','productVisible'].forEach(id=>{
+ const e=$(id);e.addEventListener('input',()=>{if(id==='offsetX')$('xValue').textContent=Number(e.value).toFixed(1);if(id==='offsetY')$('yValue').textContent=Number(e.value).toFixed(1);state.issues=issuesFor(state.rows);render()});
+});
+$('printBtn').addEventListener('click',()=>{
+ if($('printBtn').disabled)return;
+ // The generated pages are already composed and validated; browser PDF uses print CSS.
+ window.print();
+});
+window.addEventListener('resize',resizePreview);
+window.addEventListener('beforeprint',()=>{document.querySelectorAll('#printRoot .page').forEach(p=>p.style.transform='none')});
+render();
+
+</script>
+</body></html>
